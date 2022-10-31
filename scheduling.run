@@ -1,0 +1,21 @@
+#RESET THE AMPL ENVIRONMENT
+reset;
+
+#LOAD THE MODEL
+model scheduling.mod;
+
+#LOAD THE DATA
+data scheduling.dat;
+
+#DISPLAY THE PROBLEM FORMULATION
+expand Cost, maximum_shifts_perday, schedule;
+
+#CHANGE THE SOLVER (Optional)
+option solver cplex;
+
+#SOLVE
+solve;
+
+#SHOW RESULTS
+#display   _varname , _var , _var . rc;
+display patientavailability;
